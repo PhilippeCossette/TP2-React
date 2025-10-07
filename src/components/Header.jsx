@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header className="bg-white shadow-sm fixed-top">
@@ -57,9 +59,9 @@ const Header = () => {
           >
             <ul className="navbar-nav d-flex align-items-center gap-3">
               <li className="nav-item">
-                <a href="#features" className="nav-link">
+                <Link to="/" className="nav-link">
                   Accueil
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a href="#contact" className="nav-link">
@@ -67,9 +69,9 @@ const Header = () => {
                 </a>
               </li>
               <li className="nav-item ml-2">
-                <a href="#pricing" className="btn-primary">
+                <Link to="/trips" className="btn-primary">
                   Forfaits
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

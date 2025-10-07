@@ -1,0 +1,39 @@
+{
+  "trips": [
+    {
+      "id": "1",
+      "name": "Paris, France",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80",
+      "description": "The city of lights awaits you with art, culture, and romance.",
+      "price": "$2500"
+    },
+    {
+      "id": "2",
+      "name": "Maldives",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
+      "description": "Relax on pristine beaches and enjoy crystal-clear waters.",
+      "price": "$2500"
+    },
+    {
+      "id": "3",
+      "name": "Tokyo, Japan",
+      "image": "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=600&q=80",
+      "description": "Experience the blend of modern and traditional Japan.",
+      "price": "$1800"
+    },
+    {
+      "id": "4",
+      "name": "New York, USA",
+      "image": "https://images.unsplash.com/photo-1520975920383-1c62e07e0ad0?w=600&q=80",
+      "description": "The city that never sleeps, full of iconic sights.",
+      "price": "$1500"
+    },
+    {
+      "id": "5",
+      "name": "Sydney, Australia",
+      "image": "https://images.unsplash.com/photo-1506973035872-a4f7c44bb9e0?w=600&q=80",
+      "description": "Enjoy the stunning harbor, beaches, and vibrant culture.",
+      "price": "$2200"
+    }
+  ]
+}
