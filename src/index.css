@@ -5,7 +5,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,7 +28,6 @@ body {
   display: inline-block;
   padding: 0.5em 1em;
   font-weight: 700;
-  border: 1px solid #4f4f4f;
   background-color: #e8eb3d;
   border-radius: 4px;
   transition: all 0.2s ease-in;
@@ -74,7 +72,6 @@ body {
 
 .btn-primary:hover {
   color: #ffffff;
-  border: 1px solid #e8eb3d;
 }
 
 .btn-primary:hover:before {
@@ -98,7 +95,7 @@ body {
   position: absolute;
   left: 0;
   top: 100%;
-  background-color: #d8d8d8;
+  background-color: hsl(0, 0%, 85%);
   width: 100%;
   padding: 0.25em 1em;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -177,4 +174,85 @@ body {
   .hero__btn {
   font-size: 1rem;
 }
+}
+
+.card {
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card-img-top {
+  height: 225px;
+  object-fit: cover;
+}
+
+
+.inline-card {
+  display: flex;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: var(--bs-border-radius);
+  overflow: hidden;
+}
+
+.inline-card-img {
+  width: 50%;
+  object-fit: cover;
+}
+
+.inline-card-body {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.inline-card-title {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.inline-card-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.inline-card-price {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: #213547;
+} 
+
+.inline-card-old-price {
+  font-size: .75em ;
+  text-decoration: line-through;
+  color: #636363;
+}
+
+@media screen and (max-width: 500px) {
+  .inline-card {
+    flex-direction: column;
+  }
+  .inline-card-img {
+    width: 100%;
+    height: 225px;
+  }
+}
+
+
+
+
+
+.testimonial {
+  display: grid;
+  padding: 1em;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin: 0.5em;
+  height: 100%;
 }
