@@ -39,9 +39,9 @@ function App() {
   };
 
   const updateTrip = async (updatedTrip) => {
-    // Make sure updatedTrip has an id
+  
     const res = await fetch(`http://localhost:5000/trips/${updatedTrip.id}`, {
-      method: "PUT", // or PATCH
+      method: "PUT", 
       headers: {
         "Content-Type": "application/json",
       },
@@ -55,7 +55,7 @@ function App() {
 
     const data = await res.json();
 
-    // Update local state
+    
     setTrips(trips.map((trip) => (trip.id === updatedTrip.id ? data : trip)));
   };
 

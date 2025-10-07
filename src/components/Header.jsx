@@ -5,9 +5,9 @@ const Header = () => {
     <header className="bg-white shadow-sm fixed-top">
       <nav className="position-relative navbar navbar-light navbar-expand-md bg-white">
         <div className="container-fluid px-4">
-          <a href="#" className="navbar-brand fw-bold text-dark fs-4">
+          <Link to="/" className="navbar-brand fw-bold text-dark fs-4">
             Voyago
-          </a>
+          </Link>
 
           <button
             className="navbar-toggler"
