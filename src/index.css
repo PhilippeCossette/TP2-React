@@ -12,6 +12,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.section-top {
+  margin-top: 5em;
+}
+
+@media screen and (max-width: 768px) {
+  .section-top {
+    margin-top: 2em;
+  }
+}
+
 body {
   height: 100vh;
 }
@@ -38,6 +48,7 @@ body {
   cursor: pointer;
   color: black;
   z-index: 1;
+  text-align: center;
 }
 
 .btn-primary:before {
@@ -119,7 +130,7 @@ body {
   background-color: hsl(0, 0%, 85%);
   width: 100%;
   padding: 0.25em 1em;
-  
+
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -273,3 +284,40 @@ body {
   margin: 0.5em;
   height: 100%;
 }
+
+.trip-image {
+  object-fit: cover;
+  max-height: 100vh; /* ⬅️ limits the image height to the screen height */
+  width: 100%;
+}
+
+button {
+  all: unset;
+}
+
+.add-trip-form {
+  position: fixed;
+  z-index: 7;
+  right: 0;
+  background-color: white;
+  height: 100%;
+  top: 13%;
+  padding: 1em;
+  animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .add-trip-form {
+    top: 8%;
+  }
+}
+
