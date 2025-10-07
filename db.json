@@ -31,6 +31,14 @@
       "description": "The city that never sleeps, full of iconic sights.",
       "length": "4",
       "price": "1500"
+    },
+    {
+      "id": "3cf6",
+      "name": "Montreal",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Vue_sur_le_centre-ville_de_Montr%C3%A9al.png",
+      "description": "Voici un sejour a mtl en plein hiver",
+      "length": "7",
+      "price": "1555"
     }
   ]
 }

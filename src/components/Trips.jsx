@@ -2,7 +2,7 @@ import SingleTrip from "./SingleTrip";
 import AddTrip from "./AddTrip";
 import { useLocation } from "react-router-dom";
 
-const Trips = ({ trips, onDelete, toggleAddMenu, addMenuStatus }) => {
+const Trips = ({ trips, onDelete, toggleAddMenu, addMenuStatus, onAdd }) => {
   const location = useLocation();
 
   return (

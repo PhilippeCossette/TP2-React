@@ -1,4 +1,23 @@
+import { useState } from "react";
+
 const AddTrip = ({ toggleAddMenu, onAdd }) => {
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
+  const [length, setLength] = useState("");
+  const [price, setPrice] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onAdd({ name, image, description, length, price });
+    setName("");
+    setImage("");
+    setDescription("");
+    setLength("");
+    setPrice("");
+    toggleAddMenu();
+  };
+
   return (
     <div className="add-trip-form">
       {/* Header with Close Button */}
@@ -12,7 +31,7 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
       </div>
 
       {/* Form */}
-      <form className="d-flex flex-column p-3">
+      <form className="d-flex flex-column p-3" onSubmit={onSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Trip Name
@@ -22,6 +41,8 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
             className="form-control"
             id="name"
             name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -35,6 +56,8 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
             className="form-control"
             id="image"
             name="image"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
             required
           />
         </div>
@@ -47,6 +70,8 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
             className="form-control"
             id="description"
             name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             rows="4"
             required
           ></textarea>
@@ -62,6 +87,8 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
               className="form-control"
               id="length"
               name="length"
+              value={length}
+              onChange={(e) => setLength(e.target.value)}
               required
             />
           </div>
@@ -74,6 +101,8 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
               className="form-control"
               id="price"
               name="price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
               required
             />
           </div>
