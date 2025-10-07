@@ -1,24 +1,36 @@
 import { useParams, Link } from "react-router-dom";
 import { use, useEffect, useState } from "react";
+import AddTrip from "./AddTrip";
 
-const TripDetails = ({}) => {
+const TripDetails = ({ onUpdate, toggleAddMenu, addMenuStatus }) => {
   const { id } = useParams();
+  const [refresh, setRefresh] = useState(false);
   const [trip, setTrip] = useState([]);
 
   useEffect(() => {
     const fetchTrip = async () => {
-      try {
-        const res = await fetch(`http://localhost:5000/trips/${id}`);
-        const data = await res.json();
-        setTrip(data);
-      } catch (error) {
-        console.error("Error fetching trip:", error);
-      }
+      const res = await fetch(`http://localhost:5000/trips/${id}`);
+      const data = await res.json();
+      setTrip(data);
     };
     fetchTrip();
-  }, [setTrip]);
+  }, [id, refresh]);
+
+  const handleUpdate = async (updatedTrip) => {
+    await onUpdate(updatedTrip);
+    setRefresh((prev) => !prev);
+    toggleAddMenu();
+  };
+
   return (
     <section className="py-5 bg-light section-top">
+      {addMenuStatus && (
+        <AddTrip
+          toggleAddMenu={toggleAddMenu}
+          trip={trip}
+          onSubmit={handleUpdate}
+        />
+      )}
       <div class="container my-4">
         <div class="trip-banner">
           <img
@@ -31,20 +43,22 @@ const TripDetails = ({}) => {
 
         <div className="trip-info mt-4 text-start">
           <h2 className="fw-bold">{trip.name}</h2>
+          <p className="category">{trip.category}</p>
           <p className="text-muted mb-1">{trip.length} nuits</p>
           <p className="lead">
-            A partir de <strong style={{ fontSize: "1.25em" }}>${trip.price}</strong> par personne
+            A partir de{" "}
+            <strong style={{ fontSize: "1.25em" }}>${trip.price}</strong> par
+            personne
           </p>
-          <p>
-            Explore the stunning beaches, lush jungles, and vibrant culture of
-            Hawaii. Enjoy guided tours, delicious cuisine, and unforgettable
-            sunsets.
-          </p>
+          <p>{trip.description}</p>
           <div className="d-flex justify-content-start align-items-center mt-4">
-            <button className="btn-primary">Book Now</button>
-            <Link to="/trips" className="btn btn-outline-secondary ms-2">
+            <button className="btn-primary">Reserver</button>
+            <a
+              onClick={toggleAddMenu}
+              className="btn btn-outline-secondary ms-2"
+            >
               <i className="bi bi-gear"></i>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

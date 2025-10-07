@@ -1,9 +1,9 @@
 const Testimonial = ({ quote, author, rating }) => {
   const stars = [];
 
-  // Get full stars
+
   const fullStars = Math.floor(rating);
-  const hasHalfStar = rating % 1 !== 0; // true if there's a .5
+  const hasHalfStar = rating % 1 !== 0; 
 
   for (let i = 0; i < fullStars; i++) {
     stars.push(<i key={i} className="bi bi-star-fill text-warning"></i>);

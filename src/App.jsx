@@ -8,6 +8,8 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Trips from "./components/Trips";
 import TripDetails from "./components/TripDetails";
+import About from "./components/About";
+import Footer from "./components/Footer";
 
 function App() {
   const [showAddMenu, setShowAddMenu] = useState(false);
@@ -36,6 +38,27 @@ function App() {
     setTrips([...trips, data]);
   };
 
+  const updateTrip = async (updatedTrip) => {
+    // Make sure updatedTrip has an id
+    const res = await fetch(`http://localhost:5000/trips/${updatedTrip.id}`, {
+      method: "PUT", // or PATCH
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTrip),
+    });
+
+    if (!res.ok) {
+      console.error("Failed to update trip");
+      return;
+    }
+
+    const data = await res.json();
+
+    // Update local state
+    setTrips(trips.map((trip) => (trip.id === updatedTrip.id ? data : trip)));
+  };
+
   const deleteTrip = async (id) => {
     await fetch(`http://localhost:5000/trips/${id}`, {
       method: "DELETE",
@@ -48,6 +71,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/trips/"
           element={
@@ -56,12 +80,23 @@ function App() {
               onDelete={deleteTrip}
               toggleAddMenu={() => setShowAddMenu(!showAddMenu)}
               addMenuStatus={showAddMenu}
-              onAdd={addTrip} 
+              onAdd={addTrip}
+              onUpdate={updateTrip}
             />
           }
         />
-        <Route path="/trips/:id" element={<TripDetails />} />
+        <Route
+          path="/trips/:id"
+          element={
+            <TripDetails
+              onUpdate={updateTrip}
+              toggleAddMenu={() => setShowAddMenu(!showAddMenu)}
+              addMenuStatus={showAddMenu}
+            />
+          }
+        />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

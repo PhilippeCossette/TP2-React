@@ -1,28 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const AddTrip = ({ toggleAddMenu, onAdd }) => {
+const AddTrip = ({ trip, toggleAddMenu, onSubmit }) => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [length, setLength] = useState("");
   const [price, setPrice] = useState("");
+  const [category, setCategory] = useState("");
 
-  const onSubmit = (e) => {
+
+  useEffect(() => {
+    if (trip) {
+      setName(trip.name || "");
+      setImage(trip.image || "");
+      setDescription(trip.description || "");
+      setLength(trip.length || "");
+      setPrice(trip.price || "");
+      setCategory(trip.category || "");
+    }
+  }, [trip]);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd({ name, image, description, length, price });
-    setName("");
-    setImage("");
-    setDescription("");
-    setLength("");
-    setPrice("");
+    const updatedTrip = {
+      ...trip,
+      name,
+      category,
+      image,
+      description,
+      length,
+      price,
+    };
+    onSubmit(updatedTrip);
     toggleAddMenu();
   };
 
   return (
     <div className="add-trip-form">
-      {/* Header with Close Button */}
       <div className="d-flex justify-content-between align-items-center p-3 border-bottom">
-        <h2 className="mb-0">Add a New Trip</h2>
+        <h2 className="mb-0">{trip ? "Edit Trip" : "Add a New Trip"}</h2>
         <i
           className="bi bi-x fs-3"
           style={{ cursor: "pointer" }}
@@ -30,8 +46,7 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
         ></i>
       </div>
 
-      {/* Form */}
-      <form className="d-flex flex-column p-3" onSubmit={onSubmit}>
+      <form className="d-flex flex-column p-3" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Trip Name
@@ -40,9 +55,22 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
             type="text"
             className="form-control"
             id="name"
-            name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="category" className="form-label">
+            Category
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
             required
           />
         </div>
@@ -55,7 +83,6 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
             type="text"
             className="form-control"
             id="image"
-            name="image"
             value={image}
             onChange={(e) => setImage(e.target.value)}
             required
@@ -69,12 +96,11 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
           <textarea
             className="form-control"
             id="description"
-            name="description"
+            rows="4"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            rows="4"
             required
-          ></textarea>
+          />
         </div>
 
         <div className="row mb-3">
@@ -86,7 +112,6 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
               type="number"
               className="form-control"
               id="length"
-              name="length"
               value={length}
               onChange={(e) => setLength(e.target.value)}
               required
@@ -100,7 +125,6 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
               type="number"
               className="form-control"
               id="price"
-              name="price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
@@ -109,7 +133,7 @@ const AddTrip = ({ toggleAddMenu, onAdd }) => {
         </div>
 
         <button type="submit" className="btn-primary">
-          Add Trip
+          {trip ? "Update Trip" : "Add Trip"}
         </button>
       </form>
     </div>

@@ -2,13 +2,13 @@ import SingleTrip from "./SingleTrip";
 import AddTrip from "./AddTrip";
 import { useLocation } from "react-router-dom";
 
-const Trips = ({ trips, onDelete, toggleAddMenu, addMenuStatus, onAdd }) => {
+const Trips = ({ trips, onDelete, toggleAddMenu, addMenuStatus, onAdd}) => {
   const location = useLocation();
 
   return (
     <main className="py-5">
       {location.pathname === "/trips" && addMenuStatus && (
-        <AddTrip toggleAddMenu={toggleAddMenu} onAdd={onAdd}  />
+        <AddTrip toggleAddMenu={toggleAddMenu} onSubmit={onAdd}  />
       )}
       <section className="max-1200 mx-auto px-4 py-5">
         <header className="d-flex justify-content-between align-items-center   my-3">

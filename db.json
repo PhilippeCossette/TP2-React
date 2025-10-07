@@ -3,6 +3,7 @@
     {
       "id": "1",
       "name": "Paris, France",
+      "category": "City",
       "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80",
       "description": "The city of lights awaits you with art, culture, and romance.",
       "length": "7",
@@ -11,34 +12,47 @@
     {
       "id": "2",
       "name": "Maldives",
+      "category": "Beach",
       "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
-      "description": "Relax on pristine beaches and enjoy crystal-clear waters.",
+      "description": "Relax on the marvelous pristine beaches and enjoy crystal-clear waters.",
       "length": "5",
       "price": "2500"
     },
     {
       "id": "3",
       "name": "Tokyo, Japan",
+      "category": "Beach",
       "image": "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=600&q=80",
       "description": "Experience the blend of modern and traditional Japan.",
       "length": "6",
       "price": "1800"
     },
     {
-      "id": "4",
-      "name": "New York, USA",
-      "image": "https://images.unsplash.com/photo-1520975920383-1c62e07e0ad0?w=600&q=80",
-      "description": "The city that never sleeps, full of iconic sights.",
-      "length": "4",
-      "price": "1500"
-    },
-    {
       "id": "3cf6",
       "name": "Montreal",
+      "category": "City",
       "image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Vue_sur_le_centre-ville_de_Montr%C3%A9al.png",
       "description": "Voici un sejour a mtl en plein hiver",
       "length": "7",
       "price": "1555"
+    },
+    {
+      "id": "f16d",
+      "name": "Osaka",
+      "category": "City",
+      "image": "https://photos.smugmug.com/Osaka/Osaka-Travel-Guide/i-4mhQ4s9/0/L/must-see-osaka-1-day-itinerary-osaka-dotombori-canal-L.jpg",
+      "description": "Osaka is the best city ever",
+      "length": "12",
+      "price": "1122"
+    },
+    {
+      "id": "36c9",
+      "name": "Thailandd",
+      "category": "Beach",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
+      "description": "Thailand is great",
+      "length": "12",
+      "price": "1445"
     }
   ]
 }
